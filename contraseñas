@@ -1,4 +1,4 @@
-import random 
+import random
 import string
 
 def mostrar_menu():
@@ -41,3 +41,37 @@ def determinar_nivel(contraseña):
         return "Media"
     else:
         return "Fuerte"
+
+# Inicio del Programa
+print("Bienvenido al Juego Generador de Contraseñas Seguras")
+
+while True:
+    mostrar_menu()
+    try:
+        opcion = int(input("Seleccione una opción (1-4): "))
+    except ValueError:
+        print("Por favor ingrese un número válido.")
+        continue
+
+    if opcion == 4:
+        break
+    elif opcion == 1:
+        mostrar_reglas()
+    elif opcion == 2:
+        contraseña = generar_contraseña()
+        puntaje = evaluar_contraseña(contraseña)
+        nivel = determinar_nivel(contraseña)
+        print("\nContraseña generada:", contraseña)
+        print("Nivel alcanzado:", nivel)
+        print("Puntaje obtenido:", puntaje)
+    elif opcion == 3:
+        contraseña = input("Ingrese su contraseña: ")
+        puntaje = evaluar_contraseña(contraseña)
+        nivel = determinar_nivel(contraseña)
+        print("Nivel alcanzado:", nivel)
+        print("Puntaje obtenido:", puntaje)
+    else:
+        print("Opción no válida. Intente nuevamente.")
+
+print("Gracias por jugar.")
+
